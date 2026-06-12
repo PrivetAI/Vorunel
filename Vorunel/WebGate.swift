@@ -3,7 +3,7 @@ import WebKit
 
 /// Shared web panel: serves both the fullscreen launch gate and the
 /// Settings -> Privacy Policy sheet.
-struct DungeonArchitectWebPanel: UIViewRepresentable {
+struct VorunelWebPanel: UIViewRepresentable {
     let urlString: String
 
     func makeUIView(context: Context) -> WKWebView {
@@ -27,7 +27,7 @@ struct DungeonArchitectWebPanel: UIViewRepresentable {
 }
 
 /// Splash shown while the launch link check runs.
-struct DungeonArchitectLoadingScreen: View {
+struct VorunelLoadingScreen: View {
     @State private var pulse = false
 
     var body: some View {
@@ -43,7 +43,7 @@ struct DungeonArchitectLoadingScreen: View {
                     .shadow(color: DATheme.blood.opacity(0.6), radius: pulse ? 26 : 10)
                     .animation(.easeInOut(duration: 1.1).repeatForever(autoreverses: true), value: pulse)
 
-                Text("Dungeon Architect")
+                Text("Vorunel")
                     .font(DATheme.display(28))
                     .foregroundColor(DATheme.bone)
 

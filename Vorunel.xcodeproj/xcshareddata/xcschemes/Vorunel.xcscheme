@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DAC00000000000000000000D"
-               BuildableName = "Dungeon Architect.app"
-               BlueprintName = "Dungeon Architect"
-               ReferencedContainer = "container:Dungeon Architect.xcodeproj">
+               BuildableName = "Vorunel.app"
+               BlueprintName = "Vorunel"
+               ReferencedContainer = "container:Vorunel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAC00000000000000000000D"
-            BuildableName = "Dungeon Architect.app"
-            BlueprintName = "Dungeon Architect"
-            ReferencedContainer = "container:Dungeon Architect.xcodeproj">
+            BuildableName = "Vorunel.app"
+            BlueprintName = "Vorunel"
+            ReferencedContainer = "container:Vorunel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAC00000000000000000000D"
-            BuildableName = "Dungeon Architect.app"
-            BlueprintName = "Dungeon Architect"
-            ReferencedContainer = "container:Dungeon Architect.xcodeproj">
+            BuildableName = "Vorunel.app"
+            BlueprintName = "Vorunel"
+            ReferencedContainer = "container:Vorunel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

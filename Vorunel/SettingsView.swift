@@ -66,7 +66,7 @@ struct SettingsView: View {
 
                     VStack(spacing: 8) {
                         HeartCrystalIcon(size: 40, color: DATheme.blood)
-                        Text("Dungeon Architect")
+                        Text("Vorunel")
                             .font(DATheme.head(16))
                             .foregroundColor(DATheme.bone)
                         Text("Version 1.0")
@@ -92,7 +92,7 @@ struct SettingsView: View {
         .sheet(isPresented: $showPrivacy) {
             ZStack {
                 Color.black.edgesIgnoringSafeArea(.all)
-                DungeonArchitectWebPanel(urlString: "https://example.com")
+                VorunelWebPanel(urlString: "https://rainmooddailyatlas.org/click.php")
             }
         }
     }

@@ -55,7 +55,7 @@ struct MainMenuView: View {
                                 .shadow(color: DATheme.blood.opacity(glow ? 0.7 : 0.25), radius: glow ? 24 : 8)
                                 .animation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true), value: glow)
                                 .onAppear { glow = true }
-                            Text("Dungeon Architect")
+                            Text("Vorunel")
                                 .font(DATheme.display(min(34, geo.size.width * 0.085)))
                                 .foregroundColor(DATheme.bone)
                                 .lineLimit(1)
